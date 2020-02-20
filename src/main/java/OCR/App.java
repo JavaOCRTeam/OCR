@@ -17,7 +17,28 @@ public class App
 
     }
 
-    private static List<List<String>> readFile(String fileName) {
+    public static List<String> parseList(List<String> list) {
+        List<String> result = new ArrayList<>();
+
+        for (int i = 0; i < list.get(0).length(); i += 3) {
+            result.add(list.get(0).substring(i, i+2) +
+                       list.get(1).substring(i, i+2) +
+                       list.get(2).substring(i, i+2));
+        }
+
+        return result;
+    }
+
+    public static List<List<String>> parseListList(List<List<String>> listOfList) {
+        List<List<String>> result = new ArrayList<>();
+
+        for (List<String> list : listOfList) {
+            result.add(parseList(list));
+        }
+        return result;
+    }
+
+    public static List<List<String>> readFile(String fileName) {
         List<List<String>> listOfList = new ArrayList<>();
         String s1;
         String s2;
