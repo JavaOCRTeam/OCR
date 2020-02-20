@@ -6,6 +6,7 @@ import junit.framework.TestSuite;
 
 import java.util.List;
 
+
 /**
  * Unit test for simple App.
  */
@@ -48,6 +49,11 @@ public class AppTest
     public void testCanReadFirstNumber() {
         List<List<String>> listOfList = App.readFile("Textfile/digitalText.txt");
         List<List<String>> parsedList = App.parseListList(listOfList);
-        System.out.println(parsedList.get(0).get(0));
+        System.err.println(parsedList.get(0).get(0));
+    }
+
+    public void testCanReadFirstParsedNumber() {
+        List<List<String>> listOfList = App.readFile("Textfile/digitalText.txt");
+        System.err.println(App.numberStringListsToIntLists(App.parseListList(listOfList)).get(0).get(0));
     }
 }
